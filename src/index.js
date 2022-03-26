@@ -28,6 +28,14 @@ function command({ name, description }) {
 
   return {
     action,
+    argument({ name, description, isRequired }) {
+      const argName = isRequired ? `<${name}>` : `[${name}]`
+      commandInfo.argument = { name: argName, description }
+
+      return {
+        action,
+      }
+    },
     options(opts) {
       const options = opts.map(opt => {
         const fullName = trimString(opt.name.full)

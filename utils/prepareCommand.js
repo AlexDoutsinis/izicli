@@ -1,6 +1,15 @@
 export function prepareCommand(program, command) {
-  if (!command.options) {
+  if (!command.argument && !command.options) {
     program.command(command.name).description(command.description).action(command.action)
+    return
+  }
+
+  if (command.argument) {
+    program
+      .command(command.name)
+      .description(command.description)
+      .argument(command.argument.name)
+      .action(command.action)
     return
   }
 
