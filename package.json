@@ -13,6 +13,7 @@
   ],
   "author": "Alex Doutsinis",
   "license": "MIT",
+  "homepage": "https://github.com/Alexiosdut/izicli",
   "dependencies": {
     "commander": "^9.1.0"
   }
