@@ -1,15 +1,18 @@
 {
   "name": "izicli",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A library on top of commander.js that provides a more opinionated API.",
+  "main": "src/index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "cli",
+    "commander"
+  ],
+  "author": "Alex Doutsinis",
+  "license": "MIT",
   "dependencies": {
     "commander": "^9.1.0"
   }
