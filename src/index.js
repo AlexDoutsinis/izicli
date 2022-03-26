@@ -19,8 +19,6 @@ function command({ name, description }) {
   const commandInfo = {
     name,
     description,
-    argument: { name: '', description: '' },
-    options: [],
   }
 
   const action = callback => {

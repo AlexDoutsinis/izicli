@@ -1,25 +1,24 @@
 export function prepareCommand(program, command) {
+  const programRef = program.command(command.name).description(command.description)
+
   if (!command.argument && !command.options) {
-    program.command(command.name).description(command.description).action(command.action)
+    programRef.action(command.action)
     return
   }
 
   if (command.argument) {
-    program
-      .command(command.name)
-      .description(command.description)
-      .argument(command.argument.name)
-      .action(command.action)
-    return
+    programRef.argument(command.argument.name)
   }
 
-  const programRef = program.command(command.name).description(command.description)
-  command.options.forEach(option => {
-    if (option.isRequired) {
-      programRef.requiredOption(option.definition, option.description)
-      return
-    }
-    programRef.option(option.definition, option.description)
-  })
+  if (command.options) {
+    command.options.forEach(option => {
+      if (option.isRequired) {
+        programRef.requiredOption(option.definition, option.description)
+        return
+      }
+      programRef.option(option.definition, option.description)
+    })
+  }
+
   programRef.action(command.action)
 }
