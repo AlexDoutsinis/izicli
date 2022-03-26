@@ -14,7 +14,7 @@ export default {
 }
 
 function command({ name, description }) {
-  if (isEmpty(name, description)) return
+  if (isEmpty(name, description)) throw new Error('Missing required arguments')
 
   const commandInfo = {
     name,
