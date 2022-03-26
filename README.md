@@ -27,3 +27,9 @@ program
 
 program.parse(process.argv)
 ```
+
+Usage:
+
+```
+node sample.js say -v "hello"
+```
