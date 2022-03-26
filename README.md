@@ -1,3 +1,10 @@
+## izicli
+
+A library on top of commander.js that results to a more opinionated way of building CLIs.
+
+### Example
+
+```js
 import program from './index.js'
 
 program.version('0.0.1')
@@ -19,3 +26,4 @@ program
   })
 
 program.parse(process.argv)
+```
