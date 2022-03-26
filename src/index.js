@@ -34,6 +34,7 @@ function command({ name, description }) {
         const shortName = trimString(opt.name.short)
         const description = opt.description
         const acceptMultipleValues = opt.acceptMultipleValues
+        const isRequired = opt.isRequired
         const definition = !acceptMultipleValues
           ? `-${shortName}, --${fullName} <${fullName}>`
           : `-${shortName}, --${fullName} <${fullName}...>`
@@ -41,6 +42,7 @@ function command({ name, description }) {
         const option = {
           definition,
           description,
+          isRequired,
         }
 
         return option
