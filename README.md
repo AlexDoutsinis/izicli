@@ -1,6 +1,6 @@
 ## izicli
 
-A library on top of commander.js that results to a more opinionated way of building CLIs.
+A library on top of commander.js that provides a more opinionated API.
 
 ### Examples
 
