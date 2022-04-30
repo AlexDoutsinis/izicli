@@ -43,9 +43,15 @@ function command({ name, description }) {
         const description = opt.description
         const acceptMultipleValues = opt.acceptMultipleValues
         const isRequired = opt.isRequired
-        const definition = !acceptMultipleValues
+        const argumentIsRequired = opt.argumentIsRequired
+        let definition = !acceptMultipleValues
           ? `-${shortName}, --${fullName} <${fullName}>`
           : `-${shortName}, --${fullName} <${fullName}...>`
+
+        if (!argumentIsRequired) {
+          definition = definition.replace(/</g, '[')
+          definition = definition.replace(/>/g, ']')
+        }
 
         const option = {
           definition,
