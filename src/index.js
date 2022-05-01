@@ -28,8 +28,14 @@ function command({ name, description }) {
 
   return {
     action,
-    argument({ name, description, isRequired }) {
-      const argName = isRequired ? `<${name}>` : `[${name}]`
+    argument({ name, description, isRequired, acceptMultipleValues }) {
+      let argName = !acceptMultipleValues ? `<${name}>` : `<${name}...>`
+
+      if (!isRequired) {
+        argName = argName.replace(/</g, '[')
+        argName = argName.replace(/>/g, ']')
+      }
+
       commandInfo.argument = { name: argName, description }
 
       return {
